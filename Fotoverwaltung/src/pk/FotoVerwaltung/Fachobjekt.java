@@ -24,7 +24,10 @@ public abstract class Fachobjekt {
 	public String getId() {
 		return id;
 	}
-
+   
+	public String toString() {
+        return "ID: " + id;
+    }
 
 	public abstract void drucke();
 	

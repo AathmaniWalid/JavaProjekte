@@ -24,7 +24,7 @@ public class Foto extends Fachobjekt{
 		System.out.println("Erstellungsdatum: " + formatiertesDatum);
 	}
 	public String toString() {
-		return "name: " + getName() + "\nDateiName: " + dateiName + "\nMetaDaten: (" + metadaten.toString();	
+		return super.toString() + "\nname: " + getName() + "\nDateiName: " + dateiName + "\nMetaDaten: (" + metadaten.toString();	
 	}
 }
  

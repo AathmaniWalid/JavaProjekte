@@ -35,7 +35,7 @@ public String getBesitzer() {
 
 
 public String toString() {
-    String result = "Name: " + getName() + "\nBesitzer: " + besitzer + "\n";
+    String result = super.toString() + "\nName: " + getName() + "\nBesitzer: " + besitzer + "\n";
     
     for(int i = 0; i< fotos.length; i++) {
     	 if (fotos[i] != null) {
