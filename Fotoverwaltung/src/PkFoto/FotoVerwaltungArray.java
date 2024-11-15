@@ -1,8 +1,8 @@
-package pk.foto;
+package PkFoto;
 
 import java.util.Arrays;
 
-public class FotoVerwaltung {
+public class FotoVerwaltungArray {
         private Album[] alben = new Album[2];
         private int anzAlben = 0;
         
@@ -49,4 +49,6 @@ public Album findeAlbumMitName(String name) {
         }
         return null;
 }
+
+
 }

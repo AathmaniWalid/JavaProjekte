@@ -1,4 +1,4 @@
-package pk.foto;
+package PkFoto;
 
 import java.time.LocalDateTime;
 

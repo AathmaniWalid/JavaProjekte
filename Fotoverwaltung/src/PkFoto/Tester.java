@@ -1,18 +1,22 @@
-package pk.foto;
+package PkFoto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Tester {
 
 	public static void main(String[] args) {
 		
-		FotoVerwaltung fotoVerwaltung1 = new FotoVerwaltung();
+		FotoVerwaltungArray fotoVerwaltung1 = new FotoVerwaltungArray();
+		FotoVerwaltung fotoVerwaltung2 = new FotoVerwaltung();
 		
 		Album ersterAlbum = new Album("Städte","Alex Hornfischer");
 		fotoVerwaltung1.addAlbum(ersterAlbum);
+		fotoVerwaltung2.addAlbum(ersterAlbum);
 		
 		Album zweiterAlbum = new Album("Natur", "Simon Tuber");
 		fotoVerwaltung1.addAlbum(zweiterAlbum);
+		fotoVerwaltung2.addAlbum(zweiterAlbum);
 		
 	    FotoMetadaten fotoMetadaten1= new FotoMetadaten(1920, 1080, "Sony", "Alpha 6000", LocalDateTime.now());
 	    Foto foto1= new Foto("Frankfurt", "images/7861351303.jpg", fotoMetadaten1);
@@ -35,7 +39,7 @@ public class Tester {
 	    Foto foto5= new Foto("Berger", "images/786136123.jpg", fotoMetadaten5);
 	    zweiterAlbum.addFoto(foto5);
 	    
-	    System.out.println("Alle Alben:\n");
+	/*    System.out.println("Alle Alben:\n");
 	    fotoVerwaltung1.druckeAlleAlben();
 	    
 	    System.out.println("Anzahl der Alben: "+ fotoVerwaltung1.gibAnzahlAlben());
@@ -55,7 +59,28 @@ public class Tester {
 		    System.out.println(findeAlbum.toString()); }
 	    else
 		    System.out.println("Es wird kein Album gefunden");
-	   
+	   */
+	    
+	    System.out.println("Alle Alben:\n");
+	    fotoVerwaltung2.druckeAlleAlben();
+	    
+	    System.out.println("\nAnzahl der Alben: "+ fotoVerwaltung2.gibAnzahlAlben());
+	    
+	    System.out.println("\nListe aller Alben:");
+        List<Album> alleAlben = fotoVerwaltung2.gibAlleAlben();
+        int albumNummer = 1;
+        for (Album album : alleAlben) {
+            System.out.println("Album " + albumNummer + ": " + album.getName());
+            albumNummer++;}
+	    
+	    System.out.println("\nSuche nach Album: Natur ");
+	    Album findeAlbum = fotoVerwaltung2.findeAlbumMitName("Natur");
+	    if(findeAlbum != null)
+	    {
+		    System.out.println("Album gefunden: " );
+		    System.out.println(findeAlbum.toString()); }
+	    else
+		    System.out.println("Es wird kein Album gefunden");
 	}
 
 }

@@ -1,5 +1,4 @@
-package pk.foto;
-
+package PkFoto;
 import java.util.Arrays;
 
 public class Album extends Fachobjekt{
