@@ -10,6 +10,7 @@ public class Tester {
 		FotoVerwaltungArray fotoVerwaltung1 = new FotoVerwaltungArray();
 		FotoVerwaltung fotoVerwaltung2 = new FotoVerwaltung();
 		
+		Menu menu1 = new Menu(fotoVerwaltung2);
 		Album ersterAlbum = new Album("Städte","Alex Hornfischer");
 		fotoVerwaltung1.addAlbum(ersterAlbum);
 		fotoVerwaltung2.addAlbum(ersterAlbum);
@@ -81,6 +82,8 @@ public class Tester {
 		    System.out.println(findeAlbum.toString()); }
 	    else
 		    System.out.println("Es wird kein Album gefunden");
+	    
+	    menu1.menuAnzeigen();
 	}
 
 }
