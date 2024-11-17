@@ -39,7 +39,8 @@ public class Tester {
 	    FotoMetadaten fotoMetadaten5= new FotoMetadaten(1920, 1080, "Sony", "Alpha 6000", LocalDateTime.now());
 	    Foto foto5= new Foto("Berger", "images/786136123.jpg", fotoMetadaten5);
 	    zweiterAlbum.addFoto(foto5);
-	    
+	    // für die Klasse FotoVerwaltungArray
+		
 	/*    System.out.println("Alle Alben:\n");
 	    fotoVerwaltung1.druckeAlleAlben();
 	    
