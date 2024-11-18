@@ -1,15 +1,16 @@
 package PkFoto;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 public class FotoVerwaltung {
 
 	
-	private List<Album> alben= new ArrayList<>(); 
 	
+	private Set<Album> alben = new TreeSet<>();
+
     public void druckeAlleAlben(){
     	Iterator<Album> iterator = alben.iterator();
     	int albumNr = 1;
@@ -22,8 +23,8 @@ public class FotoVerwaltung {
 	
     }
 
-    public List<Album> gibAlleAlben() {
-    	List<Album> alleAlben = new ArrayList<>();
+    public Set<Album> gibAlleAlben() {
+    	Set<Album> alleAlben = new TreeSet<>();
     	Iterator<Album> iterator= alben.iterator();
     	
     	while(iterator.hasNext()) {
@@ -36,11 +37,12 @@ public class FotoVerwaltung {
     	return alben.size(); 
     }
     
-    public List<Album> getAlben() {
+    public Set<Album> getAlben() {
 		return alben;
 	}
 
 	public void addAlbum(Album album) {
+		if (album != null)
          alben.add(album);
 }
 

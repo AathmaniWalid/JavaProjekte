@@ -2,7 +2,7 @@ package PkFoto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Album extends Fachobjekt{
+public class Album extends Fachobjekt implements Comparable<Album>{
 
 private String besitzer;
 private List<Foto> fotos = new ArrayList<>();
@@ -44,4 +44,12 @@ public void drucke() {
         foto.drucke();
         }
    }
+@Override
+public int compareTo(Album o) {
+        if(this == o)
+        return 0;
+        return getName().compareTo(o.getName());
+}
+
+
 }

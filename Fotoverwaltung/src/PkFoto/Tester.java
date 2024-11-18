@@ -1,7 +1,7 @@
 package PkFoto;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 public class Tester {
 
@@ -69,7 +69,7 @@ public class Tester {
 	    System.out.println("\nAnzahl der Alben: "+ fotoVerwaltung2.gibAnzahlAlben());
 	    
 	    System.out.println("\nListe aller Alben:");
-        List<Album> alleAlben = fotoVerwaltung2.gibAlleAlben();
+        Set<Album> alleAlben = fotoVerwaltung2.gibAlleAlben();
         int albumNummer = 1;
         for (Album album : alleAlben) {
             System.out.println("Album " + albumNummer + ": " + album.getName());
