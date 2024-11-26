@@ -8,14 +8,16 @@ private String besitzer;
 private List<Foto> fotos = new ArrayList<>();
 
 public Album(String name, String besitzer) {
-	    super(name);
+	super(name);
         this.besitzer = besitzer;
 } 
 public List<Foto> getFotos() {
         return fotos;
 }
 public void addFoto(Foto foto) {
+        if (foto != null) {
         fotos.add(foto);
+        }
 }
 
 public String getBesitzer() {
@@ -46,10 +48,12 @@ public void drucke() {
    }
 @Override
 public int compareTo(Album o) {
-        if(this == o)
-        return 0;
-        return getName().compareTo(o.getName());
-}
-
-
+                if (this.getName() == null && o.getName() == null) 
+                    return 0;
+                if (this.getName() == null) 
+                    return -1;   
+                if (o.getName() == null) 
+                    return 1;     
+                return this.getName().compareTo(o.getName());
+            }
 }

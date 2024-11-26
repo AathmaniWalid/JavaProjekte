@@ -47,7 +47,10 @@ public class FotoVerwaltung {
 }
 
     public Album findeAlbumMitName(String name) {
-	     for(Album album : alben) {
+	    if (name == null) {
+            return null;
+        } 
+		for(Album album : alben) {
 	    	 if(album.getName().equals(name))
 	    		 return album;
 	     }

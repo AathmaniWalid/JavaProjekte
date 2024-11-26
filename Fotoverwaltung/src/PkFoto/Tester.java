@@ -41,7 +41,7 @@ public class Tester {
 	    zweiterAlbum.addFoto(foto5);
 	    // für die Klasse FotoVerwaltungArray
 		
-	/*    System.out.println("Alle Alben:\n");
+	    System.out.println("Alle Alben:\n");
 	    fotoVerwaltung1.druckeAlleAlben();
 	    
 	    System.out.println("Anzahl der Alben: "+ fotoVerwaltung1.gibAnzahlAlben());
@@ -61,30 +61,29 @@ public class Tester {
 		    System.out.println(findeAlbum.toString()); }
 	    else
 		    System.out.println("Es wird kein Album gefunden");
-	   */
-	    
+	   
+	    // Klasse FotoVerwaltung 
 	    System.out.println("Alle Alben:\n");
 	    fotoVerwaltung2.druckeAlleAlben();
 	    
 	    System.out.println("\nAnzahl der Alben: "+ fotoVerwaltung2.gibAnzahlAlben());
 	    
 	    System.out.println("\nListe aller Alben:");
-        Set<Album> alleAlben = fotoVerwaltung2.gibAlleAlben();
+        Set<Album> alleAlben2 = fotoVerwaltung2.gibAlleAlben();
         int albumNummer = 1;
-        for (Album album : alleAlben) {
+        for (Album album : alleAlben2) {
             System.out.println("Album " + albumNummer + ": " + album.getName());
             albumNummer++;}
 	    
 	    System.out.println("\nSuche nach Album: Natur ");
-	    Album findeAlbum = fotoVerwaltung2.findeAlbumMitName("Natur");
+	    Album findeAlbum2 = fotoVerwaltung2.findeAlbumMitName("Natur");
 	    if(findeAlbum != null)
 	    {
 		    System.out.println("Album gefunden: " );
-		    System.out.println(findeAlbum.toString()); }
+		    System.out.println(findeAlbum2.toString()); }
 	    else
 		    System.out.println("Es wird kein Album gefunden");
 	    
 	    menu1.menuAnzeigen();
 	}
-
 }
