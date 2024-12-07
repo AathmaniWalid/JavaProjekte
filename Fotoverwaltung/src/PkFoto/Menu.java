@@ -1,11 +1,12 @@
 package PkFoto;
 
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Menu {
+public class Menu{
 
 	private FotoVerwaltung fotoVerwaltung;
 	private Scanner sc;
@@ -15,8 +16,9 @@ public class Menu {
 		this.sc = new Scanner(System.in);
 	}
 public void menuAnzeigen() {
-		int auswahl;
+		int auswahl=0;
 		do {
+			try {
 			System.out.println("\nFoto-App");
             System.out.println("\n1. Album hinzufügen");
             System.out.println("2. Drucke alle Alben");
@@ -25,7 +27,18 @@ public void menuAnzeigen() {
             System.out.print("\nBitte Aktion wählen: ");
             
             auswahl = sc.nextInt();
-
+   
+               if(auswahl < 1 || auswahl > 4) {
+                  throw new UngueltigeWahlException("Ungültige Wahl. Bitte wählen Sie eine Zahl zwischen 1 und 4.");
+               }
+            
+            } catch(InputMismatchException exp){
+            	System.out.println("Ungültige Eingabe.");
+            	sc.nextLine();
+            } catch(UngueltigeWahlException exp){
+            	System.out.println(exp.getMessage());
+            }
+			
     		switch (auswahl) {
             case 1:
                 
@@ -73,12 +86,12 @@ public void menuAnzeigen() {
             case 4:
                 System.out.println("Programm beendet.");
                 break;
-            default:
-                System.out.println("Ungültige Wahl. Bitte wählen Sie eine Zahl zwischen 1 und 4.");
-       
+           
             }
 		}
 		while(auswahl != 4);
 		
-		}
+					
 }
+}
+
