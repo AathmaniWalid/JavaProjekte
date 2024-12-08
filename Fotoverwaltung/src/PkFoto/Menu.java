@@ -3,7 +3,6 @@ package PkFoto;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Menu{
@@ -41,10 +40,16 @@ public void menuAnzeigen() {
 			
     		switch (auswahl) {
             case 1:
-                
-            	String neuAlbumName = JOptionPane.showInputDialog(null,"Geben Sie den Namen des Albums ein:");
-            	
-            	String albumBesitzer = JOptionPane.showInputDialog(null,"Geben Sie den Namen des Besitzers ein:");
+            	String neuAlbumName = "";
+                while(true) {
+            	try {
+            	neuAlbumName = eingabemitExceptionHandling("Geben Sie den Namen des Albums ein:");
+            	break;
+                } catch(UngueltigeEingabeException exp) {
+                	JOptionPane.showMessageDialog(null, exp.getMessage(), "fehler", JOptionPane.ERROR_MESSAGE);
+                }
+                }
+                String albumBesitzer = JOptionPane.showInputDialog(null,"Geben Sie den Namen des Besitzers ein:");
             	
             	Album neuesAlbum = new Album(neuAlbumName,albumBesitzer);
             	
@@ -52,9 +57,17 @@ public void menuAnzeigen() {
             	
             	if(fotosFrage == JOptionPane.YES_OPTION) {
             		boolean weiteresFoto = true;
-            	    while(weiteresFoto) {
-            		String fotoName = JOptionPane.showInputDialog(null,"Geben Sie den Namen des Fotos ein:");
-            		
+            		while(weiteresFoto) {
+            		String fotoName = "";
+            		while(true) {
+            		try {
+            		fotoName = eingabemitExceptionHandling("Geben Sie den Namen des Fotos ein:");
+            		break;
+            		} catch(UngueltigeEingabeException exp) {
+            			JOptionPane.showMessageDialog(null, exp.getMessage(), "fehler", JOptionPane.ERROR_MESSAGE);
+
+            		}
+            		}
             		String dateiName = JOptionPane.showInputDialog(null,"Geben Sie den Dateinamen des Fotos ein:");
             		
             		Foto neuesFoto = new Foto(fotoName, dateiName, new FotoMetadaten(1920, 1080,"Kamera","Modell", LocalDateTime.now()));
@@ -90,8 +103,13 @@ public void menuAnzeigen() {
             }
 		}
 		while(auswahl != 4);
-		
-					
 }
+		String eingabemitExceptionHandling(String message) throws UngueltigeEingabeException{
+			String eingabe = JOptionPane.showInputDialog(null, message);
+			if(eingabe == null || eingabe.isEmpty()) {
+				throw new UngueltigeEingabeException("Ungueltige Eingabe. die Eingabe darf nicht leere sein!");
+			}
+			return eingabe;
+		}
 }
 
