@@ -7,8 +7,6 @@ import java.util.TreeSet;
 
 public class FotoVerwaltung {
 
-	
-	
 	private Set<Album> alben = new TreeSet<>();
 
     public void druckeAlleAlben(){
@@ -20,9 +18,7 @@ public class FotoVerwaltung {
     		album.drucke();
     		albumNr++;
     	}
-	
     }
-
     public Set<Album> gibAlleAlben() {
     	Set<Album> alleAlben = new TreeSet<>();
     	Iterator<Album> iterator= alben.iterator();
@@ -41,9 +37,12 @@ public class FotoVerwaltung {
 		return alben;
 	}
 
-	public void addAlbum(Album album) {
-		if (album != null)
-         alben.add(album);
+	public void addAlbum(Album album) throws AlbumVorhandenException {
+         for(Album alleAlben : alben) {
+        	 if(alleAlben.getName().equals(album.getName()))
+        	 throw new AlbumVorhandenException("Dieser Name existiert schon!");
+         }
+        	 alben.add(album);
 }
 
     public Album findeAlbumMitName(String name) {
@@ -56,6 +55,4 @@ public class FotoVerwaltung {
 	     }
 	     return null;
 	     }
-    
-	
 }

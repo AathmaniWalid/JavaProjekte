@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Tester {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws AlbumVorhandenException {
 		
 		FotoVerwaltungArray fotoVerwaltung1 = new FotoVerwaltungArray();
 		FotoVerwaltung fotoVerwaltung2 = new FotoVerwaltung();

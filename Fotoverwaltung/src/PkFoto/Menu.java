@@ -14,7 +14,7 @@ public class Menu{
 		this.fotoVerwaltung = fotoVerwaltung;
 		this.sc = new Scanner(System.in);
 	}
-public void menuAnzeigen() {
+    public void menuAnzeigen(){
 		int auswahl=0;
 		do {
 			try {
@@ -45,14 +45,21 @@ public void menuAnzeigen() {
             	try {
             	neuAlbumName = eingabemitExceptionHandling("Geben Sie den Namen des Albums ein:");
             	break;
+            	
                 } catch(UngueltigeEingabeException exp) {
                 	JOptionPane.showMessageDialog(null, exp.getMessage(), "fehler", JOptionPane.ERROR_MESSAGE);
                 }
                 }
                 String albumBesitzer = JOptionPane.showInputDialog(null,"Geben Sie den Namen des Besitzers ein:");
-            	
-            	Album neuesAlbum = new Album(neuAlbumName,albumBesitzer);
-            	
+                Album neuesAlbum = null;
+                neuesAlbum = new Album(neuAlbumName,albumBesitzer);
+            	try{
+            		fotoVerwaltung.addAlbum(neuesAlbum);
+            		JOptionPane.showMessageDialog(null, "Album wurde erfolgreich hinzugefügt!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
+            	} catch(AlbumVorhandenException exp){
+            		JOptionPane.showMessageDialog(null, exp.getMessage(), "fehler", JOptionPane.ERROR_MESSAGE);
+            		break;
+            	}
             	int fotosFrage = JOptionPane.showConfirmDialog(null, "Wollen Sie Fotos hinzufügen?","Weitere Fotos", JOptionPane.YES_NO_OPTION);
             	
             	if(fotosFrage == JOptionPane.YES_OPTION) {
@@ -79,7 +86,6 @@ public void menuAnzeigen() {
             		weiteresFoto = (antwort2==JOptionPane.YES_OPTION);
             	    }
             	};
-            	fotoVerwaltung.addAlbum(neuesAlbum);
             	break;
             case 2:
                 fotoVerwaltung.druckeAlleAlben();
@@ -106,10 +112,11 @@ public void menuAnzeigen() {
 }
 		String eingabemitExceptionHandling(String message) throws UngueltigeEingabeException{
 			String eingabe = JOptionPane.showInputDialog(null, message);
-			if(eingabe == null || eingabe.isEmpty()) {
-				throw new UngueltigeEingabeException("Ungueltige Eingabe. die Eingabe darf nicht leere sein!");
+			if(eingabe.trim() == null || eingabe.trim().isEmpty()) {
+				throw new UngueltigeEingabeException("Üngültige Eingabe. die Eingabe darf nicht leere sein!");
 			}
 			return eingabe;
 		}
 }
+
 
