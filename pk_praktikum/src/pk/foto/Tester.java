@@ -8,6 +8,7 @@ public class Tester {
 	public static void main(String[] args) throws Exception {
 		
 		
+		
 		FotoVerwaltung fotoVerwaltung = new FotoVerwaltung();
 		
 		Menu menu1 = new Menu(fotoVerwaltung);
@@ -24,7 +25,7 @@ public class Tester {
 	    Foto foto1= new Foto("Frankfurt", file1.getName(), fotoMetadaten1);
 	    ersterAlbum.addFoto(foto1);
 	    
-	    
+	   
 	    File file2 = new File("images/35835723323_b3ed4bf5d1_o.jpg");
 	    FotoMetadaten fotoMetadaten2= FotoUtil.readMetadata(file2);
 	    Foto foto2= new Foto("Dortmund", file2.getName(), fotoMetadaten2);
