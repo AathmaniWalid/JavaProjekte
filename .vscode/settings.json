@@ -1,6 +1,0 @@
-{
-    "java.project.sourcePaths": [
-        "Fotoverwaltung/src/PkFoto"
-    ],
-    "java.debug.settings.onBuildFailureProceed": true
-}
