@@ -29,7 +29,7 @@ public class Tester {
 	    FotoMetadaten fotoMetadaten2= FotoUtil.readMetadata(file2);
 	    Foto foto2= new Foto("Dortmund", file2.getName(), fotoMetadaten2);
 	    ersterAlbum.addFoto(foto2);
-	    //nxnxn
+	    
 	    
 	    File file3 = new File("images/7861351302_74a45956dd_o.jpg");
 	    FotoMetadaten fotoMetadaten3= FotoUtil.readMetadata(file3);
